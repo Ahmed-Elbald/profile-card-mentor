@@ -48,9 +48,6 @@ body {
     background-position: -100px -300px, bottom -300px right -100px;
     background-size: 800px;
   }
-  .parent .card {
-    height: 40vh;
-  }
 }
 .parent .card {
   border-radius: 10px;
