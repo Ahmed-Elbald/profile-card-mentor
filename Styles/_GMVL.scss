@@ -1,0 +1,133 @@
+// This file is named "GMVL" which stands for : Global , Mixins , Variables , Loops . I'm doing that just for demo purposes .
+
+/* Global */
+
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+i,
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+// Variables
+
+$parent-bg:hsl(185, 75%, 39%);
+$headers: hsl(229, 23%, 23%);
+$gray: hsl(227, 10%, 46%);
+$border: hsl(0, 0%, 59%);
+
+
+// Mixins
+
+@mixin grid-centering {
+  display: grid;
+  place-items: center;
+}
+
+@mixin flex-centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin position-centering {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+
+@mixin pseudo-element($content) {
+  content: $content;
+  position: absolute;
+}
+
+@mixin position($Y-axis, $Y-value, $X-axis, $X-value, $X, $Y) {
+  position: absolute;
+  #{$Y-axis}: $Y-value;
+  #{$X-axis}: $X-value;
+  transform: translate($X, $Y);
+}
+
+@mixin circle($diameter) {
+  border-radius: 50%;
+  width: $diameter;
+  height: $diameter;
+}
+
+@mixin flex-layout($dir, $justify, $align-item,$align-cont,$wrap) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align-item;
+  flex-wrap: $wrap;
+  align-content: $align-cont;
+}
+
+@mixin grid-layout($rows,$columns,$gap) {
+  display: grid;
+  grid-template-rows: $rows;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+
+@mixin flex-row-gap($gap,$justify) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+  justify-content: $justify;
+}
+
+@mixin flex-column-gap($gap) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin grid-fit($min, $gap) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+}
+
+@mixin min-mq($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+@mixin max-mq($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+@mixin minmax-mq($min-size,$max-size) {
+  @media (min-width: $min-size) and (max-width: $max-size) {
+    @content;
+  }
+}
+
+@mixin triangle($size,$color,$direction) {
+  border: $size solid transparent;
+  @if $direction == "top" {
+    border-bottom-color: $color;
+  }
+  @else if $direction == "bottom" {
+    border-top-color: $color;
+  }
+  @else if $direction == "right" {
+    border-left-color: $color;
+  }
+  @else if $direction == "left" {
+    border-right-color: $color;
+  }
+}
