@@ -5,34 +5,33 @@
 /* Styling */
 body {
   height: 100vh;
-}
-.g-color {
-  color: $gray;
-}
-.parent {
-  width: 375px;
   background-image: url(../images/bg-pattern-top.svg),
     url(../images/bg-pattern-bottom.svg);
   background-color: $parent-bg;
-  background-position: -250px -250px, bottom -250px right -250px;
-  background-size: 500px;
+  background-position: -150px -150px, bottom -150px right -150px;
+  background-size: 600px;
   background-repeat: no-repeat;
-  padding: 6em 1em;
-  @include position-centering;
+  @include flex-centering;
+
   @include min-mq(1440px) {
-    @include flex-centering;
     height: 100vh;
-    width: 1440px;
     background-position: -100px -300px, bottom -300px right -100px;
-  background-size: 800px;
-  .card {
-    height: 40vh;
+    background-size: 800px;
+
   }
-  }
+}
+
+.g-color {
+  color: $gray;
+}
+
+.parent {
   .card {
+    width: max-content;
     border-radius: 10px;
     background-color: white;
     overflow: hidden;
+
     .imgs-cont {
       img:last-child {
         display: block;
@@ -41,13 +40,22 @@ body {
         border: 5px solid white;
       }
     }
+
     .details-cont {
       padding: 4em 0em 1em;
       text-align: center;
+
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: .4em;
+      }
+
       .statistics {
         @include flex-row-gap(null, space-between);
         margin-top: 3em;
+        margin-bottom: 1em;
         padding: .5em 2em;
+
         &::before {
           @include pseudo-element("");
           width: 100%;
@@ -56,8 +64,10 @@ body {
           top: -1em;
           left: 0;
         }
-        @include min-mq(1440px) {
-          padding-top: 1.5em;
+
+        h2 {
+          font-size: 1.5rem;
+          margin-bottom: .3em;
         }
       }
     }

@@ -20,40 +20,29 @@ input[type=submit] {
 /* Styling */
 body {
   height: 100vh;
+  background-image: url(../images/bg-pattern-top.svg), url(../images/bg-pattern-bottom.svg);
+  background-color: #19a2ae;
+  background-position: -150px -150px, bottom -150px right -150px;
+  background-size: 600px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1440px) {
+  body {
+    height: 100vh;
+    background-position: -100px -300px, bottom -300px right -100px;
+    background-size: 800px;
+  }
 }
 
 .g-color {
   color: #6a6f81;
 }
 
-.parent {
-  width: 375px;
-  background-image: url(../images/bg-pattern-top.svg), url(../images/bg-pattern-bottom.svg);
-  background-color: #19a2ae;
-  background-position: -250px -250px, bottom -250px right -250px;
-  background-size: 500px;
-  background-repeat: no-repeat;
-  padding: 6em 1em;
-  position: absolute;
-  bottom: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-}
-@media (min-width: 1440px) {
-  .parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 1440px;
-    background-position: -100px -300px, bottom -300px right -100px;
-    background-size: 800px;
-  }
-  .parent .card {
-    height: 40vh;
-  }
-}
 .parent .card {
+  width: max-content;
   border-radius: 10px;
   background-color: white;
   overflow: hidden;
@@ -71,11 +60,16 @@ body {
   padding: 4em 0em 1em;
   text-align: center;
 }
+.parent .card .details-cont h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.4em;
+}
 .parent .card .details-cont .statistics {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3em;
+  margin-bottom: 1em;
   padding: 0.5em 2em;
 }
 .parent .card .details-cont .statistics::before {
@@ -87,10 +81,9 @@ body {
   top: -1em;
   left: 0;
 }
-@media (min-width: 1440px) {
-  .parent .card .details-cont .statistics {
-    padding-top: 1.5em;
-  }
+.parent .card .details-cont .statistics h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3em;
 }
 
 /*# sourceMappingURL=main.css.map */
